@@ -1,0 +1,27 @@
+In this part of the assignment we are retreiving data from the hadoop file systems and sorting the data based on the country code and timestamp.
+
+To run this algortithm use the following command and run this command from the code file path folder.
+
+{Path to SPark-submit} {code file path} {hdfs file path for input} {hdf file path for output}
+example /mnt/data/spark-3.3.0-bin-hadoop3/sbin/spark-submit part2-sort.py hdfs:10.10.1.1:9000/SortDataInput.csv hdfs:10.10.1.1:9000/SortDataOutput.csv 
+
+or else we can use run.sh script as follows
+
+bash {pathTorun.sh} {Path to Spark-submit} {code file path} {hdfs file path for input} {hdf file path for output}
+
+Example:
+ bash ass1-code/Part2/run.sh /mnt/data/spark-3.3.0-bin-hadoop3/bin/spark-submit ass1-code/Part2/par2-sort.py hdfs://10.10.1.1:9000/PageRankData/enwiki-pages-articles/\* hdfs://10.10.1.1:9000/PageRankData/OptiResultsTask4
+
+
+ Note: 
+ if the output folder already exists in hadoop hdfs please delete it before every run.
+
+
+Note: Add the below Spark Configuration on spark-defaults.conf file
+spark.driver.memory 30g
+spark.executor.memory 30g
+spark.executor.cores 5
+spark.task.cpus 1
+spark.local.dir /mnt/data/
+spark.speculation true
+spark.master spark://10.10.1.1:7077

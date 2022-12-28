@@ -1,0 +1,11 @@
+Note: For Spark Configuration 
+
+Add the below Spark Configurations on spark-defaults.conf file
+
+spark.driver.memory 30g
+spark.executor.memory 30g
+spark.executor.cores 5
+spark.task.cpus 1
+spark.local.dir /mnt/data/
+spark.speculation true
+spark.master spark://10.10.1.1:7077
